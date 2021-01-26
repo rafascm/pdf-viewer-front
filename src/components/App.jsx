@@ -1,11 +1,12 @@
 import React from 'react';
+import { GlobalStyles } from '../styles/globalStyles';
+import PDFReader from './PDFReader';
 
-function App() {
-  return (
-    <h1>
-      oi
-    </h1>
-  );
-}
+const App = () => (
+  <>
+    <GlobalStyles />
+    <PDFReader />
+  </>
+);
 
 export default App;
