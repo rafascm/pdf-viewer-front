@@ -18,6 +18,19 @@ const Info = ({ page, onPageChange }) => (
 export default Info;
 
 const Container = styled.span`
-
   text-align: center;
+
+  & > input {
+    text-align: center;
+    width: 4rem;
+  }
+
+  & > input::-webkit-outer-spin-button,
+  & > input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  & > input[type="number"] {
+    -moz-appearance: textfield;
+  }
 `;
