@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors } from '../../styles/globalStyles';
-import Info from './Info';
+import PageInfo from './PageInfo';
+import ZoomInfo from './ZoomInfo';
 
 const ControlPanel = (props) => {
   const {
@@ -17,7 +18,7 @@ const ControlPanel = (props) => {
   };
 
   const zoom = {
-    min: 0.5,
+    min: 0.6,
     max: 2.5,
     previous: scale - 0.1,
     next: scale + 0.1,
@@ -43,7 +44,7 @@ const ControlPanel = (props) => {
         disabled={isFirstPage}
         onClick={() => setPageNumber(page.previous)}
       />
-      <Info page={page} onPageChange={onPageChange} />
+      <PageInfo page={page} onPageChange={onPageChange} />
       <Icon
         className="fas fa-angle-right"
         disabled={isLastPage}
@@ -59,7 +60,7 @@ const ControlPanel = (props) => {
         disabled={isMinZoom}
         onClick={() => setScale(zoom.previous)}
       />
-      <span>{(scale * 100).toFixed()}%</span>
+      <ZoomInfo scale={scale} />
       <Icon
         className="fas fa-search-plus"
         disabled={isMaxZoom}

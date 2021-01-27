@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Info = ({ page, onPageChange }) => (
+const PageInfo = ({ page, onPageChange }) => (
   <Container>
     Página{' '}
     <input
@@ -15,7 +15,7 @@ const Info = ({ page, onPageChange }) => (
     de {page.last}
   </Container>
 );
-export default Info;
+export default PageInfo;
 
 const Container = styled.span`
   text-align: center;
