@@ -1,9 +1,7 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import styled from 'styled-components';
-import Loader from './Loader';
-// import Loader from './Loader';
+import ControlPanel from './ControlPanel';
 
 /**
  * Enabling pdf.js worker increases performance, rendering files in a separate thread
@@ -17,28 +15,28 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 const PDFReader = () => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
-  const [isLoading, setIsLoading] = useState(true);
 
   const onDocumentLoadSuccess = (file) => {
     setNumPages(file.numPages);
-    setIsLoading(false);
   };
 
   return (
     <Container>
-      <Loader isLoading={isLoading} />
+      <ControlPanel
+        pageNumber={pageNumber}
+        numPages={numPages}
+        setPageNumber={setPageNumber}
+      />
       <Document
         file="/assets/docs/OWASP.pdf"
         onLoadSuccess={onDocumentLoadSuccess}
       >
         <Page pageNumber={pageNumber} />
       </Document>
-      <p>
-        Page {pageNumber} of {numPages}
-      </p>
     </Container>
   );
 };
+
 export default PDFReader;
 
 const Container = styled.div`
@@ -46,4 +44,5 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 0.5rem;
 `;

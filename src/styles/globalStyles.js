@@ -3,11 +3,10 @@ import { createGlobalStyle } from 'styled-components';
 const colors = {
   white: '#fff',
   black: '#000',
-  primary: '#333',
-  secondary: '#eee',
-  error: '#f55',
-  warning: '#ffa500',
-  pTransparent: '#333333AA',
+  primary: '#f2f2f2',
+  secondary: '#585858',
+  disabled: '#eee',
+  pTransparent: '#58585850',
 };
 
 const GlobalStyles = createGlobalStyle`
@@ -18,12 +17,22 @@ const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    min-height: 100vh;
+    height: 100vh;
+    background-color: ${colors.primary};
   }
 
   #root {
-    background-color: ${colors.primary};
     color: ${colors.secondary}
+  }
+
+  .react-pdf__Page__textContent {
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+
+  .react-pdf__Page__annotations.annotationLayer {
+    display: none;
   }
 `;
 

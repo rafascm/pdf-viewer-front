@@ -1,0 +1,23 @@
+import React from 'react';
+import styled from 'styled-components';
+
+const Info = ({ page, onPageChange }) => (
+  <Container>
+    Página{' '}
+    <input
+      name="pageNumber"
+      type="number"
+      min={page.first}
+      max={page.last}
+      value={page.current}
+      onChange={onPageChange}
+    />{' '}
+    de {page.last}
+  </Container>
+);
+export default Info;
+
+const Container = styled.span`
+
+  text-align: center;
+`;
