@@ -31,7 +31,7 @@ const PDFReader = () => {
         setScale={setScale}
       />
       <Document
-        file="/assets/docs/OWASP.pdf"
+        file="/assets/docs/sample.pdf"
         onLoadSuccess={onDocumentLoadSuccess}
       >
         <Page pageNumber={pageNumber} scale={scale} />
