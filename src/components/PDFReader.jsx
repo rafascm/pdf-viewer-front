@@ -15,6 +15,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 const PDFReader = () => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
+  const [scale, setScale] = useState(1.0);
 
   const onDocumentLoadSuccess = (file) => {
     setNumPages(file.numPages);
@@ -25,13 +26,15 @@ const PDFReader = () => {
       <ControlPanel
         pageNumber={pageNumber}
         numPages={numPages}
+        scale={scale}
         setPageNumber={setPageNumber}
+        setScale={setScale}
       />
       <Document
         file="/assets/docs/OWASP.pdf"
         onLoadSuccess={onDocumentLoadSuccess}
       >
-        <Page pageNumber={pageNumber} />
+        <Page pageNumber={pageNumber} scale={scale} />
       </Document>
     </Container>
   );
