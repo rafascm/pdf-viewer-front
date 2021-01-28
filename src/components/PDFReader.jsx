@@ -21,6 +21,8 @@ const PDFReader = () => {
     setNumPages(file.numPages);
   };
 
+  const url = 'https://localhost:5001/api/pdf-viewer';
+
   return (
     <Container>
       <ControlPanel
@@ -31,7 +33,7 @@ const PDFReader = () => {
         setScale={setScale}
       />
       <Document
-        file="/assets/docs/sample.pdf"
+        file={`${url}/3`}
         onLoadSuccess={onDocumentLoadSuccess}
       >
         <Page pageNumber={pageNumber} scale={scale} />

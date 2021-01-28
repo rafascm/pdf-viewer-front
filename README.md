@@ -19,8 +19,7 @@ Use `npm start` para rodar o app.
 - É possível pular para a primeira e última página
 - `input` para pular até a página desejada
 - Zoom In e Zoom Out entre `50` e `250%`
+- Integração com a api `.NET`
 
 ## Pendências
-
-- Integração com a api (ainda precisa ser implementada) em `.NET`
 - Habilitar Lazy Loading e permitir que as páginas sejam renderizadas com infinite scrolling
